@@ -1,6 +1,13 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegularExpressions {
 
   public static void main(String[] args) {
+
+    // IMPORTANT LINK: https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html
+
+    // STRINGS USED IN EXAMPLES:
     String example = "I am a string, and a regular expression aswell!";
     String alphaNumeric = "abcDeeeF12GhhIIIjjk99z";
     String alphaNumericUpperAndLower = "abcDeeeF12GhhIabcDeeeIIjjk99z";
@@ -69,7 +76,6 @@ public class RegularExpressions {
     System.out.println("*Turns Harry to lowercase:*");
     System.out.println("Harry".replaceAll("[Hh]arry", "harry"));
     System.out.println();
-
 
     // REPLACE ALL EXCEPT ej
     System.out.println("***** EXAMPLE 9: *****");
@@ -147,11 +153,52 @@ public class RegularExpressions {
     System.out.println(hasWhiteSpaceTabAndNewLine.replaceAll("\\W", "X"));
     System.out.println();
 
-    //SURROUND TRICK:
+    // SURROUND TRICK:
     System.out.println("***** EXAMPLE 19: *****");
     System.out.println(hasWhiteSpaceTabAndNewLine);
     System.out.println("*Surround all words with X:*");
     System.out.println(hasWhiteSpaceTabAndNewLine.replaceAll("\\b", "X"));
     System.out.println();
+
+    // QUANTIFIER:
+    System.out.println("***** EXAMPLE 20: *****");
+    System.out.println(alphaNumericUpperAndLower);
+    System.out.println("*Replace abcD and 3xe with YYY*");
+    System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe{3}","YYY"));
+    System.out.println("*Replace abcD and all following e with YYY pt1:*");
+    System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe+","YYY"));
+    System.out.println("*Replace abcD and all following e with YYY pt2:*");
+    // HAVING THE e AT THE END IS OPTIONAL IN THIS CASE!!!!!!!!!
+    System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe*","YYY"));
+    System.out.println();
+
+    // REPLACE BETWEEN 2-5 CHARACTERS
+    System.out.println("***** EXAMPLE 21: *****");
+    System.out.println(alphaNumericUpperAndLower);
+    System.out.println("*Replace abcD and 2-5's with YYY*");
+    System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe{2,5}","YYY"));
+    System.out.println();
+
+    // REPLACE 1 c, 0 OR MORE D, FOLLOWED BY e:
+    System.out.println("***** EXAMPLE 22: *****");
+    System.out.println("*Replace 1x'c', 0<'D', followed by 'e' with Y:*");
+    System.out.println(alphaNumericUpperAndLower);
+    System.out.println(alphaNumericUpperAndLower.replaceAll("c+D*e","Y"));
+    System.out.println();
+
+    // EMAIL EXAMPLE
+    System.out.println("***** EXAMPLE 23: *****");
+    String address = "john.doe@examplemail.com";
+    System.out.println(validate(address) ? address + " is a valid address" : address + "is not a valid address");
+    validate(address);
+    System.out.println();
+  }
+
+  public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
+      Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+  public static boolean validate(String emailStr) {
+    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+    return matcher.find();
   }
 }
