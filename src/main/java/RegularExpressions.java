@@ -188,9 +188,10 @@ public class RegularExpressions {
 
     // EMAIL EXAMPLE
     System.out.println("***** EXAMPLE 23: *****");
-    String address = "john.doe@examplemail.com";
-    System.out.println(validate(address) ? address + " is a valid address" : address + "is not a valid address");
-    validate(address);
+    String validAddress = "john.doe@examplemail.com";
+    String invalidAddress = "john.doeexamplemail.com";
+    System.out.println(validate(validAddress) ? validAddress + " is a valid address" : validAddress + " is not a valid address");
+    System.out.println(validate(invalidAddress) ? invalidAddress + " is a valid address" : invalidAddress + " is not a valid address");
     System.out.println();
   }
 
@@ -198,7 +199,7 @@ public class RegularExpressions {
       Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
   public static boolean validate(String emailStr) {
-    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
     return matcher.find();
   }
 }
