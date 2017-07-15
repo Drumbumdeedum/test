@@ -191,16 +191,46 @@ public class RegularExpressions {
     System.out.println("***** EXAMPLE 23: *****");
     String validAddress = "john.doe@examplemail.com";
     String invalidAddress = "john.doeexamplemail.com";
-    System.out.println(validate(validAddress) ? validAddress + " is a valid address" : validAddress + " is not a valid address");
-    System.out.println(validate(invalidAddress) ? invalidAddress + " is a valid address" : invalidAddress + " is not a valid address");
+    System.out.println(
+        validateEmail(validAddress) ? validAddress + " is a valid address" : validAddress + " is not a valid address");
+    System.out.println(
+        validateEmail(invalidAddress) ? invalidAddress + " is a valid address" : invalidAddress + " is not a valid address");
     System.out.println();
+
+    // PASSWORD EXAMPLE
+    System.out.println("***** EXAMPLE 24: *****");
+    String validPw = "AAaaBBbb!%66";
+    String longPw = "AaaaBB33bbb///==+!..%%%ggggEEE";
+    String allLowerCase = "aabb11+/.x";
+    String allUpperCase = "AABB11+/.X";
+    String tooShort = "Aa/.1";
+    String noSpecChar = "AAaaaaBBBbbb33";
+    String whiteSpace = "AA   BBB 333 // %";
+    System.out.println(easyPwValidate(validPw));
+    System.out.println(easyPwValidate(longPw));
+    System.out.println(easyPwValidate(tooShort));
+    System.out.println(easyPwValidate(allLowerCase));
+    System.out.println(easyPwValidate(allUpperCase));
+    System.out.println(easyPwValidate(noSpecChar));
+    System.out.println(easyPwValidate(whiteSpace));
   }
 
   public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
       Pattern.compile("^[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
-  public static boolean validate(String emailStr) {
-    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+  public static boolean validateEmail(String email) {
+    Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
     return matcher.find();
+  }
+
+  public static final Pattern VALID_PASSWORD_REGEX = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}");
+
+  public static boolean validatePassword(String password) {
+    Matcher matcher = VALID_PASSWORD_REGEX.matcher(password);
+    return matcher.find();
+  }
+
+  public static String easyPwValidate(String inputPw) {
+    return validatePassword(inputPw)? inputPw + " is a valid password" : inputPw + " is not a valid password";
   }
 }
