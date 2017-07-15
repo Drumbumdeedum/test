@@ -139,9 +139,10 @@ public class RegularExpressions {
 
     //REPLACE ALL A-Z, a-z, 0-9
     System.out.println("***** EXAMPLE 17: *****");
-    System.out.println("*Replace all A-Z a-z 0-9:*");
     System.out.println(alphaNumeric);
+    System.out.println("*Replace all A-Z a-z 0-9 with X:*");
     System.out.println(alphaNumeric.replaceAll("\\w", "X"));
+    System.out.println();
     System.out.println(hasWhiteSpaceTabAndNewLine);
     System.out.println(hasWhiteSpaceTabAndNewLine.replaceAll("\\w", "X"));
     System.out.println();
@@ -149,7 +150,7 @@ public class RegularExpressions {
     // REPLACE ALL WHITESPACES WITH X
     System.out.println("***** EXAMPLE 18: *****");
     System.out.println(hasWhiteSpaceTabAndNewLine);
-    System.out.println("*Replace all whitespaces with X:*");
+    System.out.println("*Replace all non-word characters with X:*");
     System.out.println(hasWhiteSpaceTabAndNewLine.replaceAll("\\W", "X"));
     System.out.println();
 
@@ -196,7 +197,7 @@ public class RegularExpressions {
   }
 
   public static final Pattern VALID_EMAIL_ADDRESS_REGEX =
-      Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+      Pattern.compile("^[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
 
   public static boolean validate(String emailStr) {
     Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
