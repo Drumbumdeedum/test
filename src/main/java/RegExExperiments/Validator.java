@@ -72,25 +72,25 @@ public class Validator {
   }
 
   private static boolean noUppercaseLetter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[A-Z])(?=\\S+$)");
+    Pattern pattern = Pattern.compile("(?=.*[A-Z])");
     Matcher matcher = pattern.matcher(password);
     return !matcher.find();
   }
 
   private static boolean noLowerCaseLetter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[a-z])(?=\\S+$)");
+    Pattern pattern = Pattern.compile("(?=.*[a-z])");
     Matcher matcher = pattern.matcher(password);
     return !matcher.find();
   }
 
   private static boolean noNumericCharacter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[0-9])(?=\\S+$)");
+    Pattern pattern = Pattern.compile("(?=.*[0-9])");
     Matcher matcher = pattern.matcher(password);
     return !matcher.find();
   }
 
   private static boolean noSpecialCharacter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$)");
+    Pattern pattern = Pattern.compile("(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])");
     Matcher matcher = pattern.matcher(password);
     return !matcher.find();
   }

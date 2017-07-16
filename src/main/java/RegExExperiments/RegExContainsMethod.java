@@ -11,13 +11,13 @@ public class RegExContainsMethod {
     String upperCase = "EXAMPLE STRING";
     String lowerCase = "example string";
 
-    Pattern pattern = Pattern.compile("(?=.*[a-z])(?=\\S+$)");
+    Pattern pattern = Pattern.compile("(?=.*[a-z])");
     Matcher matcherMixed = pattern.matcher(mixedCase);
     Matcher matcherUpper = pattern.matcher(upperCase);
     Matcher matcherLower = pattern.matcher(lowerCase);
 
-    System.out.println(mixedCase + " contains lowercase letters: " + matcherMixed.find());
-    System.out.println(upperCase + " contains lowercase letters: " + matcherUpper.find());
-    System.out.println(lowerCase + " contains lowercase letters: " + matcherLower.find());
+    System.out.println(mixedCase + " - contains lowercase letters: " + matcherMixed.find());
+    System.out.println(upperCase + " - contains lowercase letters: " + matcherUpper.find());
+    System.out.println(lowerCase + " - contains lowercase letters: " + matcherLower.find());
   }
 }
