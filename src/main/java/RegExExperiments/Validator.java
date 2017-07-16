@@ -23,6 +23,7 @@ public class Validator {
     String allLowerCase = "aabb11+/.x";
     String allUpperCase = "AABB11+/.X";
     String noSpecChar = "AAaaaaBBBbbb33";
+    String noNumbericChar = "AAbb%CCcccc";
     String whiteSpace = "AA   bbBBB 333 // %";
     System.out.println(easyPasswordValidation(validPw));
     System.out.println(easyPasswordValidation(longPw));
@@ -30,6 +31,7 @@ public class Validator {
     System.out.println(easyPasswordValidation(allLowerCase));
     System.out.println(easyPasswordValidation(allUpperCase));
     System.out.println(easyPasswordValidation(noSpecChar));
+    System.out.println(easyPasswordValidation(noNumbericChar));
     System.out.println(easyPasswordValidation(whiteSpace));
   }
 
@@ -53,6 +55,8 @@ public class Validator {
   public static String easyPasswordValidation(String password) {
     if (validatePassword(password)) {
       return password + " - Valid password.";
+    } else if (containsWhitespace(password)) {
+      return password + " - contains whitespace character!";
     } else if (noUppercaseLetter(password)) {
       return password + " - contains no uppercase letter!";
     } else if (noLowerCaseLetter(password)) {
@@ -68,25 +72,31 @@ public class Validator {
   }
 
   private static boolean noUppercaseLetter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$).{8,}");
+    Pattern pattern = Pattern.compile("(?=.*[A-Z])(?=\\S+$)");
     Matcher matcher = pattern.matcher(password);
-    return matcher.find();
+    return !matcher.find();
   }
 
   private static boolean noLowerCaseLetter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[A-Z])(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$).{8,}");
+    Pattern pattern = Pattern.compile("(?=.*[a-z])(?=\\S+$)");
     Matcher matcher = pattern.matcher(password);
-    return matcher.find();
+    return !matcher.find();
   }
 
   private static boolean noNumericCharacter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$).{8,}");
+    Pattern pattern = Pattern.compile("(?=.*[0-9])(?=\\S+$)");
     Matcher matcher = pattern.matcher(password);
-    return matcher.find();
+    return !matcher.find();
   }
 
   private static boolean noSpecialCharacter(String password) {
-    Pattern pattern = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}");
+    Pattern pattern = Pattern.compile("(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$)");
+    Matcher matcher = pattern.matcher(password);
+    return !matcher.find();
+  }
+
+  private static boolean containsWhitespace(String password) {
+    Pattern pattern = Pattern.compile("^(.*\\s+.*)+$");
     Matcher matcher = pattern.matcher(password);
     return matcher.find();
   }
