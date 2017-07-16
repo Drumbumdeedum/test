@@ -18,7 +18,7 @@ public class Validator {
     System.out.println();
 
     String validPw = "AAaaBBbb!%66";
-    String longPw = "AaaaBB33bbb///==+!..%%%ggggEEE";
+    String longValidPw = "AaaaBB33bbb///==+!..%%%ggggEEE";
     String tooShort = "Aa/.1";
     String allLowerCase = "aabb11+/.x";
     String allUpperCase = "AABB11+/.X";
@@ -26,7 +26,7 @@ public class Validator {
     String noNumbericChar = "AAbb%CCcccc";
     String whiteSpace = "AA   bbBBB 333 // %";
     System.out.println(easyPasswordValidation(validPw));
-    System.out.println(easyPasswordValidation(longPw));
+    System.out.println(easyPasswordValidation(longValidPw));
     System.out.println(easyPasswordValidation(tooShort));
     System.out.println(easyPasswordValidation(allLowerCase));
     System.out.println(easyPasswordValidation(allUpperCase));
