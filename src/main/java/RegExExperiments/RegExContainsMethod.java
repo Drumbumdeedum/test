@@ -7,9 +7,9 @@ public class RegExContainsMethod {
 
   public static void main(String[] args) {
 
-    String mixedCase = "Example  String";
-    String upperCase = "EXAMPLE STRING";
-    String lowerCase = "example string";
+    String mixedCase = "Example String 123 %/!";
+    String upperCase = "EXAMPLE STRING 123 %/!";
+    String lowerCase = "example string 123 %/!";
 
     Pattern pattern = Pattern.compile("(?=.*[a-z])");
     Matcher matcherMixed = pattern.matcher(mixedCase);

@@ -169,9 +169,10 @@ public class RegularExpressions {
     System.out.println("*Replace abcD and 3xe with YYY*");
     System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe{3}","YYY"));
     System.out.println("*Replace abcD and all following e with YYY pt1:*");
+    // LOOKING FOR 1+ 'e's
     System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe+","YYY"));
     System.out.println("*Replace abcD and all following e with YYY pt2:*");
-    // HAVING THE e AT THE END IS OPTIONAL IN THIS CASE!!!!!!!!!
+    // HAVING THE e AT THE END IS OPTIONAL IN THIS CASE!!!!!!!!! LOOKING FOR 0+ 'e's
     System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDe*","YYY"));
     System.out.println();
 
