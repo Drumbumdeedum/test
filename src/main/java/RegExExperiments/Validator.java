@@ -56,19 +56,19 @@ public class Validator {
     if (validatePassword(password)) {
       return password + " - Valid password.";
     } else if (containsWhitespace(password)) {
-      return password + " - contains whitespace character!";
+      return password + " - Password contains whitespace character(s)!";
     } else if (noUppercaseLetter(password)) {
-      return password + " - contains no uppercase letter!";
+      return password + " - Password contains no uppercase letter!";
     } else if (noLowerCaseLetter(password)) {
-      return password + " - contains no lowercase letter!";
+      return password + " - Password contains no lowercase letter!";
     } else if (noNumericCharacter(password)) {
-      return password + " - contains no numeric character!";
+      return password + " - Password contains no numeric character!";
     } else if (noSpecialCharacter(password)) {
-      return password + " - contains no special character";
+      return password + " - Password contains no special character";
     } else if (tooShort(password)) {
-      return password + " - is too short, should be at least 8 characters long!";
+      return password + " - Password is too short, should be at least 8 characters long!";
     }
-    return password + " - contains whitespaces!";
+    return "Woops, something went wrong...";
   }
 
   private static boolean noUppercaseLetter(String password) {
