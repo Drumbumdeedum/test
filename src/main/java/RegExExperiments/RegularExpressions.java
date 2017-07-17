@@ -12,7 +12,7 @@ public class RegularExpressions {
     // STRINGS USED IN EXAMPLES:
     String example = "I am a string, and a regular expression aswell!";
     String alphaNumeric = "abcDeeeF12GhhIIIjjk99z";
-    String alphaNumericUpperAndLower = "abcDeeeF12GhhIabcDeeeIIjjk99z";
+    String alphaNumericUpperAndLower = "abcDeeeabcDeee917";
     String hasWhiteSpaceTabAndNewLine = "I have blanks and \t a tab, and also a \n newline";
 
     // BASIC EXAMPLE:
@@ -34,7 +34,7 @@ public class RegularExpressions {
     System.out.println("***** EXAMPLE 3: *****");
     System.out.println(alphaNumeric);
     System.out.println("*Replace first abcDeee with YYY:*");
-    System.out.println(alphaNumeric.replaceAll("^abcDeee", "YYY"));
+    System.out.println(alphaNumericUpperAndLower.replaceAll("^abcDeee", "YYY"));
     System.out.println();
 
     // REPLACE ALL MATCHES
