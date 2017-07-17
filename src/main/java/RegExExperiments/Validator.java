@@ -8,7 +8,7 @@ public class Validator {
   private static final Pattern VALID_EMAIL_ADDRESS_REGEX =
       Pattern.compile("^[A-Z0-9._%-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
   private static final Pattern VALID_PASSWORD_REGEX =
-      Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$).{8,}");
+      Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&'()*+,-./:;<=>?@^_`{|}~])(?=\\S+$)(?=^\\S.*).{8,}");
 
   public static void main(String[] args) {
     String validAddress = "john.doe@examplemail.com";
@@ -25,6 +25,7 @@ public class Validator {
     String noSpecChar = "AAaaaaBBBbbb33";
     String noNumbericChar = "AAbb%CCcccc";
     String whiteSpace = "AA   bbBBB 333 // %";
+    String startsWithWhiteSpace = " StartWithWh8Sp*ce";
     System.out.println(easyPasswordValidation(validPw));
     System.out.println(easyPasswordValidation(longValidPw));
     System.out.println(easyPasswordValidation(tooShort));
@@ -33,6 +34,7 @@ public class Validator {
     System.out.println(easyPasswordValidation(noSpecChar));
     System.out.println(easyPasswordValidation(noNumbericChar));
     System.out.println(easyPasswordValidation(whiteSpace));
+    System.out.println(easyPasswordValidation(startsWithWhiteSpace));
   }
 
   private static boolean validateEmail(String email) {

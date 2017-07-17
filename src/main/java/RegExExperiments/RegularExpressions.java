@@ -202,7 +202,7 @@ public class RegularExpressions {
 
     // PASSWORD EXAMPLE
     System.out.println("***** EXAMPLE 24: *****");
-    String validPw = "AAaaBBbb!%66";
+    String validPw = " AAaaBBbb!%66";
     String longPw = "AaaaBB33bbb///==+!..%%%ggggEEE";
     String allLowerCase = "aabb11+/.x";
     String allUpperCase = "AABB11+/.X";
@@ -226,7 +226,12 @@ public class RegularExpressions {
     return matcher.find();
   }
 
-  public static final Pattern VALID_PASSWORD_REGEX = Pattern.compile("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}");
+  public static final Pattern VALID_PASSWORD_REGEX = Pattern.compile(
+      "(?=.*[0-9])" +  // ?= positive lookahead
+      "(?=.*[a-z])" +
+      "(?=.*[A-Z])" +
+      "(?=.*[@#$%^&+=])" +
+      "(?=\\S+$).{8,}");
 
   public static boolean validatePassword(String password) {
     Matcher matcher = VALID_PASSWORD_REGEX.matcher(password);
