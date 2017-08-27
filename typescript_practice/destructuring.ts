@@ -28,3 +28,4 @@ const greeting = `This is the first line
 I'm ${nameOfUser}.
 Hey!!!
 `;
+console.log(greeting);

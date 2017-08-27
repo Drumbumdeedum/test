@@ -17,3 +17,4 @@ console.log(myAge);
 // Template literals
 var nameOfUser = "Dani";
 var greeting = "This is the first line\nI'm " + nameOfUser + ".\nHey!!!\n";
+console.log(greeting);
