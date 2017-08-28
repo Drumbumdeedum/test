@@ -1,8 +1,6 @@
 "use strict";
 // Exercise 1 - Maybe use an Arrow Function?
-var double = function (value) {
-    return value * 2;
-};
+var double = function (value) { return value * 2; };
 console.log(double(10));
 // Exercise 2 - If only we could provide some default values...
 var greet = function (name) {
@@ -16,7 +14,7 @@ var numbers = [-3, 33, 38, 5];
 console.log(Math.min.apply(Math, numbers));
 // Exercise 4 - I have to think about Exercise 3 ...
 var newArray = [55, 20];
-Array.prototype.push.apply(newArray, numbers);
+newArray.push.apply(newArray, numbers);
 console.log(newArray);
 // Exercise 5 - That's a well-constructed array.
 var testResults = [3.89, 2.99, 1.38];
