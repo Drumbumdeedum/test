@@ -113,7 +113,7 @@ a:hover {
   font-weight: bold;
 }
 
-#midiBeamBanner {
+.imageBanner {
   height: 100px;
   margin-top: 10px;
   border-radius: 10px;
