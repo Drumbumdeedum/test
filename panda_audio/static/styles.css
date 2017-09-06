@@ -14,6 +14,7 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-gap: 10px;
+  text-align: center;
 }
 
 #pandaLogo {
@@ -51,13 +52,13 @@ body {
 
 .contentParagraph {
   text-align: justify;
+  padding: 0 15px;
 }
 
 .content {
   grid-column: 1/6;
   background-color: #c4c4c4;
   border-radius: 5px;
-  padding: 10px;
   font-family: "Helvetica Neue", sans-serif;
 }
 
@@ -67,7 +68,16 @@ body {
 
 .bar {
   background-color: #353535;
-  border-radius: 5px;
+}
+
+.barTop {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.barBottom {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .imageDisplay {
@@ -82,4 +92,30 @@ a {
 
 a:hover {
   color: grey;
+}
+
+.buyNow {
+  width: 120px;
+  height: 50px;
+  line-height: 40px;
+  background-color: dodgerblue;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 1.3em;
+  transition: all ease-in-out 300ms;
+  margin: auto;
+}
+
+.buyNow:hover {
+  background-color: lightskyblue;
+  font-weight: bold;
+}
+
+#midiBeamBanner {
+  height: 100px;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
 }
