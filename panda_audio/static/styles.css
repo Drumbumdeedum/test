@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,700");
+
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+#pageWrapper {
+  margin: auto;
+  width: 800px;
+}
+
+#contentWrapper {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-gap: 10px;
+}
+
+#pandaLogo {
+  height: 100px;
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 3px;
+  background-color: #353535;
+  height: 40px;
+  line-height: 40px;
+  border: 3px solid #353535;
+  border-radius: 5px;
+}
+
+.menuOption {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  height: 40px;
+  transition: all ease-in-out 300ms;
+}
+
+.menuOption:hover {
+  color: #353535;
+  background-color: white;
+}
+
+.selected {
+  color: #353535;
+  background-color: white;
+}
+
+.contentParagraph {
+  text-align: justify;
+}
+
+.content {
+  grid-column: 1/6;
+  background-color: #c4c4c4;
+  border-radius: 5px;
+  padding: 10px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+.images {
+  grid-column: 6/9;
+}
+
+.bar {
+  background-color: #353535;
+  border-radius: 5px;
+}
+
+.imageDisplay {
+  width: 50%;
+  margin: 20px auto;
+}
+
+a {
+  text-decoration: none;
+  color: cornflowerblue;
+}
+
+a:hover {
+  color: grey;
+}
