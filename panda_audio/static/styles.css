@@ -94,23 +94,37 @@ a:hover {
   color: grey;
 }
 
-.buyNow {
+form {
+  background: none;
+}
+
+.orderNow {
   width: 120px;
   height: 50px;
   line-height: 40px;
-  background-color: dodgerblue;
+  background: #56ccf2; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #56ccf2, #2f80ed); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #56ccf2, #2f80ed);
   color: black;
   font-weight: bold;
   border: 2px solid black;
   border-radius: 5px;
   font-size: 1.3em;
   transition: all ease-in-out 300ms;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, .8);
   margin: auto;
 }
 
-.buyNow:hover {
-  background-color: lightskyblue;
+.orderNow:hover {
+  background: #000046; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #000046, #1cb5e0); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #000046, #1cb5e0);
   font-weight: bold;
+}
+
+.orderNow:active {
+  vertical-align: top;
+  margin-right: 2px;
 }
 
 .imageBanner {
